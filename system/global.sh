@@ -163,7 +163,7 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 36 "
       <array>
         <integer>100</integer>
         <integer>2</integer>
-        <integer>1179648</integer>
+        <integer>1048576</integer>
       </array>
     </dict>
   </dict>
