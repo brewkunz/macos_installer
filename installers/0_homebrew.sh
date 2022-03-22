@@ -68,7 +68,6 @@ cask "google-drive"
 # Dev Apps
 cask "docker"
 cask "phpstorm"
-# cask "postico"
 # cask "sequel-pro"
 
 
