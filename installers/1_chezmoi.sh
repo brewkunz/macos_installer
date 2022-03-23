@@ -2,8 +2,6 @@
 # ChezMoi
 ###############################################################################
 
-# Find a way to safely set my github Personal Access token
-
 # Fetch and apply chezmoi dotfiles
 chezmoi init --apply https://github.com/baikunz/dotfiles.git -S $HOME/.dotfiles
 

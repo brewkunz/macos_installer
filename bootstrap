@@ -147,20 +147,16 @@ cask "iterm2"
 cask "google-chrome"
 cask "the-unarchiver"
 cask "1password"
-cask "alfred"
 cask "hyperswitch"
 cask "bettertouchtool"
 cask "little-snitch"
 cask "appcleaner"
 cask "adguard"
 cask "google-drive"
-# cask "bartender"
-# cask "istat-menus"
 
 # Dev Apps
 cask "docker"
 cask "phpstorm"
-# cask "postico"
 # cask "sequel-pro"
 
 
@@ -176,7 +172,25 @@ brew cleanup
 # ChezMoi
 ###############################################################################
 
-chezmoi init --apply https://github.com/baikunz/dotfiles.git
+# Fetch and apply chezmoi dotfiles
+chezmoi init --apply https://github.com/baikunz/dotfiles.git -S $HOME/.dotfiles
+
+# Install znap
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git $HOME/.config/zsh/modules/zsh-snap
+source $HOME/.config/zsh/modules/zsh-snap/install.zsh
+
+# Update dotfiles repo url to use ssh since we now have synced the ssh key
+chezmoi git -- remote set-url origin git@github.com:baikunz/dotfiles.git
+
+# Taps
+tap "brewkunz/taps", "git@github.com:brewkunz/taps.git"
+
+cask "brewkunz-alfred"
+cask "brewkunz-bartender"
+cask "brewkunz-istat-menus"
+
+# Dev apps
+cask "brewkunz-postico"
 
 true;
 
@@ -253,6 +267,9 @@ function prefs {
   # Enable full keyboard access for all controls
   # (e.g. enable Tab in modal dialogs)
   # defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+  
+  # Use F keys
+  defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
   
   # Disable press-and-hold for keys in favor of key repeat
   defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -347,7 +364,7 @@ function prefs {
         <array>
           <integer>100</integer>
           <integer>2</integer>
-          <integer>1179648</integer>
+          <integer>1048576</integer>
         </array>
       </dict>
     </dict>
