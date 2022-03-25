@@ -63,6 +63,7 @@ cask "little-snitch"
 cask "appcleaner"
 cask "adguard"
 cask "google-drive"
+cask "slack"
 
 # Dev Apps
 cask "docker"
